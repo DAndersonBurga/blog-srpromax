@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <title>Home</title>
+</head>
+<body>
+    <nav class="nav-principal">
+        <div class="logo">
+            <h1>Blog-<span>SrPromax</span></h1>
+            <img th:src="@{/img/java-icon.svg}" alt="icon">
+        </div>
+        <div class="links">
+            <div class="link"><a th:href="@{/home}">Home</a></div>
+            <div th:if="${user == null}" class="link"><a th:href="@{/auth/login}">Login</a></div>
+            <div th:if="${user == null}" class="link"><a th:href="@{/auth/register}">Register</a></div>
+            <div th:if="${user != null}" class="link"><a href="#" th:text="${user.username}"></a></div>
+            <div th:if="${user != null}" class="link"><a th:href="@{/logout}">Logout</a></div>
+        </div>
+    </nav>
+
+
+    <main class="container">
+        <div class="content">
+            <div class="contenido-principal">
+                <div class="nav-blog">
+                    <div class="links-nav-blog">
+                        <a href="#">All Posts</a>
+                        <a href="#">My Posts</a>
+                    </div>
+                    <div class="search">
+                        <input type="text" placeholder="Search" autocomplete="off" aria-label="Search">
+                    </div>
+                </div>
+                <div class="new-post">
+                    <a href="#">Create New Post</a>
+                </div>
+                <div class="blogs">
+                    <ul>
+                        <li class="blog">
+                            <div class="blog-content">
+                                <div class="blog-content-1">
+                                    <div class="blog-image">
+                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
+                                    </div>
+                                    <div class="blog-text">
+                                        <h2>General Discussions</h2>
+                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                    </div>
+                                </div>
+                                <div class="blog-community">
+                                    <div class="blog-view-comments">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
+                                    </div>
+                                    <div>
+                                        <a href="#">Follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="blog">
+                            <div class="blog-content">
+                                <div class="blog-content-1">
+                                    <div class="blog-image">
+                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
+                                    </div>
+                                    <div>
+                                        <h2>General Discussions</h2>
+                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                    </div>
+                                </div>
+                                <div class="blog-community">
+                                    <div class="blog-view-comments">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
+                                    </div>
+                                    <div>
+                                        <a href="#">Follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="blog">
+                            <div class="blog-content">
+                                <div class="blog-content-1">
+                                    <div class="blog-image">
+                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
+                                    </div>
+                                    <div>
+                                        <h2>General Discussions</h2>
+                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                    </div>
+                                </div>
+                                <div class="blog-community">
+                                    <div class="blog-view-comments">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
+                                    </div>
+                                    <div>
+                                        <a href="#">Follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="blog">
+                            <div class="blog-content">
+                                <div class="blog-content-1">
+                                    <div class="blog-image">
+                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
+                                    </div>
+                                    <div>
+                                        <h2>General Discussions</h2>
+                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                    </div>
+                                </div>
+                                <div class="blog-community">
+                                    <div class="blog-view-comments">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
+                                    </div>
+                                    <div>
+                                        <a href="#">Follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="blog">
+                            <div class="blog-content">
+                                <div class="blog-content-1">
+                                    <div class="blog-image">
+                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
+                                    </div>
+                                    <div>
+                                        <h2>General Discussions</h2>
+                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                    </div>
+                                </div>
+                                <div class="blog-community">
+                                    <div class="blog-view-comments">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
+                                    </div>
+                                    <div>
+                                        <a href="#">Follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="blog">
+                            <div class="blog-content">
+                                <div class="blog-content-1">
+                                    <div class="blog-image">
+                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
+                                    </div>
+                                    <div>
+                                        <h2>General Discussions</h2>
+                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                    </div>
+                                </div>
+                                <div class="blog-community">
+                                    <div class="blog-view-comments">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
+                                    </div>
+                                    <div>
+                                        <a href="#">Follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="blog">
+                            <div class="blog-content">
+                                <div class="blog-content-1">
+                                    <div class="blog-image">
+                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
+                                    </div>
+                                    <div>
+                                        <h2>General Discussions</h2>
+                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                    </div>
+                                </div>
+                                <div class="blog-community">
+                                    <div class="blog-view-comments">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
+                                    </div>
+                                    <div>
+                                        <a href="#">Follow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="new-posts">
+                            <div class="post">
+                                <div class="post-header">
+                                    <img th:src="@{/img/user.svg}" alt="user" width="30px" height="30px">
+                                    <div class="post-userinfo">
+                                        <h3>Admin <span></span></h3>
+                                        <p>Mar 22</p>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <h3>Seeds from around the world</h3>
+                                    <p>Engage your audience with relevant and</p>
+                                    <p>This is your forum post. Creating</p>
+                                </div>
+                                <div class="new-blog-community">
+                                    <div class="like">
+                                        <img th:src="@{/img/like.svg}" alt="like" width="26px" height="26px">
+                                        <span>Like</span>
+                                    </div>
+                                    <div class="comments-view-icon">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="20px" width="20px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="20px" width="20px">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post">
+                                <div class="post-header">
+                                    <img th:src="@{/img/user.svg}" alt="user" width="30px" height="30px">
+                                    <div class="post-userinfo">
+                                        <h3>Admin <span></span></h3>
+                                        <p>Mar 22</p>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <h3>Seeds from around the world</h3>
+                                    <p>Engage your audience with relevant and</p>
+                                    <p>This is your forum post. Creating</p>
+                                </div>
+                                <div class="new-blog-community">
+                                    <div class="like">
+                                        <img th:src="@{/img/like.svg}" alt="like" width="26px" height="26px">
+                                        <span>Like</span>
+                                    </div>
+                                    <div class="comments-view-icon">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="20px" width="20px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="20px" width="20px">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post">
+                                <div class="post-header">
+                                    <img th:src="@{/img/user.svg}" alt="user" width="30px" height="30px">
+                                    <div class="post-userinfo">
+                                        <h3>Admin <span></span></h3>
+                                        <p>Mar 22</p>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <h3>Seeds from around the world</h3>
+                                    <p>Engage your audience with relevant and</p>
+                                    <p>This is your forum post. Creating</p>
+                                </div>
+                                <div class="new-blog-community">
+                                    <div class="like">
+                                        <img th:src="@{/img/like.svg}" alt="like" width="26px" height="26px">
+                                        <span>Like</span>
+                                    </div>
+                                    <div class="comments-view-icon">
+                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="20px" width="20px">
+                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="20px" width="20px">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-home">
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html {
+    font-size: 62.5%;
+    font-family: Open Sans, sans-serif;
+    height: 100%;
+}
+
+body {
+    background-image: url("../img/wallpaper-login.jpg");
+    height: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 120rem;
+    height: 100%; /* Aprovechar la altura completa de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar verticalmente el contenido */
+    align-items: center; /* Centrar horizontalmente el contenido */
+}
+
+.img-hero-login {
+    background-image: url("../img/wallpaper-login.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60rem;
+}
+
+/** Formulario **/
+.form {
+    box-shadow: 3px 3px 10px rgba(2, 2, 2, 0.66);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+}
+
+@media (max-width: 545px) {
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .img-hero-login {
+        display: none;
+    }
+
+    form {
+        height: 75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .campo {
+        font-size: 5rem;
+    }
+}
+
+.form-login {
+    background-color: #1b2a4f;
+    display: grid;
+    place-items: center;
+    max-width: 100%;
+}
+
+.form-login h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+form {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+/** Campos **/
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.8rem;
+}
+
+.campo label {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.campo input {
+    background-color: transparent;
+    font-size: 1.8rem;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    color: #ffffff;
+}
+
+.campo input:focus {
+    outline: none;
+}
+
+.button-login {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-login:hover {
+    background-color: #45a049;
+}
+.button-login:active {
+    background-color: #3e8e41;
+}
+
+.msj-error {
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: #f44336;
+    color: #fff;
+    font-size: 1.8rem;
+}
