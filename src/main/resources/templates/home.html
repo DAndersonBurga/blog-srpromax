@@ -35,10 +35,10 @@
                     </div>
                 </div>
                 <div class="new-post">
-                    <a href="#">Create New Post</a>
+                    <a th:href="@{/create-post}">Create New Post</a>
                 </div>
                 <div class="blogs">
-                    <ul>
+                    <ul class="list">
                         <li class="blog">
                             <div class="blog-content">
                                 <div class="blog-content-1">
@@ -199,7 +199,11 @@
                                 </div>
                             </div>
                         </li>
+                    </ul>
+                    <ul class="listPage">
 
+                    </ul>
+                    <ul>
                         <li class="new-posts">
                             <div class="post">
                                 <div class="post-header">
@@ -283,5 +287,6 @@
     <footer class="footer-home">
 
     </footer>
+    <script th:src="@{/js/home.js}"></script>
 </body>
 </html>

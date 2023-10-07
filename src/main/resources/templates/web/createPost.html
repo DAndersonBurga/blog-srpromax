@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/post.css}">
+    <title>Crear Post</title>
+</head>
+<body>
+
+<nav class="nav-principal">
+    <div class="logo">
+        <h1>Blog-<span>SrPromax</span></h1>
+        <img th:src="@{/img/java-icon.svg}" alt="icon">
+    </div>
+    <div class="links">
+        <div class="link"><a th:href="@{/home}">Home</a></div>
+        <div th:if="${user == null}" class="link"><a th:href="@{/auth/login}">Login</a></div>
+        <div th:if="${user == null}" class="link"><a th:href="@{/auth/register}">Register</a></div>
+        <div th:if="${user != null}" class="link"><a href="#" th:text="${user.username}"></a></div>
+        <div th:if="${user != null}" class="link"><a th:href="@{/logout}">Logout</a></div>
+    </div>
+</nav>
+
+<div class="contenido">
+    <div class="contenedor">
+        <form action="#">
+            <div class="entrada-blog">
+                <div class="entrada-header">
+                    <textarea name="" id="" placeholder="Elige un título para tu entrada"></textarea>
+                </div>
+                <div class="entrada-content">
+                    <textarea  name="entrada" placeholder="Escribe tu entrada aquí, algo simple :)."></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
