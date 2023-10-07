@@ -59,7 +59,9 @@ public class RegisterController {
             return "auth/register";
         }
 
-        return "redirect:/auth/login";
+        String message = "Revise su email para la verificación de su cuenta.";
+        model.addAttribute("message", message);
+        return "auth/registerSuccess";
     }
 
     @GetMapping("/register/verifyEmail")

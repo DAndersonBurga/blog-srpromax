@@ -25,13 +25,21 @@
 
 <div class="contenido">
     <div class="contenedor">
-        <form action="#">
+        <form th:action="@{/create-post}" th:object="${post}" method="post">
             <div class="entrada-blog">
                 <div class="entrada-header">
-                    <textarea name="" id="" placeholder="Elige un título para tu entrada"></textarea>
+                    <textarea th:field="*{title}" placeholder="Elige un título para tu entrada"></textarea>
                 </div>
                 <div class="entrada-content">
-                    <textarea  name="entrada" placeholder="Escribe tu entrada aquí, algo simple :)."></textarea>
+                    <textarea  th:field="*{content}" placeholder="Escribe tu entrada aquí, algo simple :)."></textarea>
+                </div>
+
+                <input class="button-post" type="submit" value="Publicar Post">
+            </div>
+
+            <div th:if="${#fields.hasErrors()}">
+                <div th:each="err: ${#fields.errors()}">
+                    <p class="msj-error" th:text="${err}"></p>
                 </div>
             </div>
         </form>

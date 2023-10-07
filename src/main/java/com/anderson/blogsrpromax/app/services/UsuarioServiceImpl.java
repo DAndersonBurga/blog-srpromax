@@ -1,15 +1,20 @@
 package com.anderson.blogsrpromax.app.services;
 
 import com.anderson.blogsrpromax.app.exceptions.UserAlreadyExistsException;
+import com.anderson.blogsrpromax.app.models.dto.PostDTO;
+import com.anderson.blogsrpromax.app.models.entity.Post;
 import com.anderson.blogsrpromax.app.register.RegisterRequest;
 import com.anderson.blogsrpromax.app.register.token.VerificationToken;
+import com.anderson.blogsrpromax.app.repository.IPostRepository;
 import com.anderson.blogsrpromax.app.repository.IUsuarioRepository;
 import com.anderson.blogsrpromax.app.repository.IVerificationTokenRepository;
 import com.anderson.blogsrpromax.app.user.Usuario;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,6 +24,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     private final IUsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
     private final IVerificationTokenRepository verificationTokenRepository;
+    private final IPostRepository postRepository;
 
     @Override
     public Usuario registrarUsuario(RegisterRequest request) {
@@ -69,5 +75,21 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
         }
 
+    }
+
+    @Override
+    public void crearPost(Usuario usuario, PostDTO postDTO) {
+        Post post = Post.builder()
+                .title(postDTO.getTitle())
+                .content(postDTO.getContent())
+                .author(usuario)
+                .build();
+
+        postRepository.save(post);
+    }
+
+    @Override
+    public List<Post> findUserPosts(Long id) {
+        return postRepository.findUserPosts(id);
     }
 }

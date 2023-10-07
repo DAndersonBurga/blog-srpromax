@@ -38,16 +38,16 @@
                     <a th:href="@{/create-post}">Create New Post</a>
                 </div>
                 <div class="blogs">
-                    <ul class="list">
-                        <li class="blog">
+                    <ul th:if="${posts.size() > 0}" class="list">
+                        <li th:each="post: ${posts}" class="blog">
                             <div class="blog-content">
                                 <div class="blog-content-1">
                                     <div class="blog-image">
                                         <img th:src="@{/img/logo-srpromax.png}" alt="logo">
                                     </div>
                                     <div class="blog-text">
-                                        <h2>General Discussions</h2>
-                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
+                                        <h2 th:text="${post.title}"></h2>
+                                        <p th:text="${post.content}"></p>
                                     </div>
                                 </div>
                                 <div class="blog-community">
@@ -62,209 +62,27 @@
                             </div>
                         </li>
 
-                        <li class="blog">
-                            <div class="blog-content">
-                                <div class="blog-content-1">
-                                    <div class="blog-image">
-                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
-                                    </div>
-                                    <div>
-                                        <h2>General Discussions</h2>
-                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-community">
-                                    <div class="blog-view-comments">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
-                                    </div>
-                                    <div>
-                                        <a href="#">Follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
 
-                        <li class="blog">
-                            <div class="blog-content">
-                                <div class="blog-content-1">
-                                    <div class="blog-image">
-                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
-                                    </div>
-                                    <div>
-                                        <h2>General Discussions</h2>
-                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-community">
-                                    <div class="blog-view-comments">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
-                                    </div>
-                                    <div>
-                                        <a href="#">Follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="blog">
-                            <div class="blog-content">
-                                <div class="blog-content-1">
-                                    <div class="blog-image">
-                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
-                                    </div>
-                                    <div>
-                                        <h2>General Discussions</h2>
-                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-community">
-                                    <div class="blog-view-comments">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
-                                    </div>
-                                    <div>
-                                        <a href="#">Follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="blog">
-                            <div class="blog-content">
-                                <div class="blog-content-1">
-                                    <div class="blog-image">
-                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
-                                    </div>
-                                    <div>
-                                        <h2>General Discussions</h2>
-                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-community">
-                                    <div class="blog-view-comments">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
-                                    </div>
-                                    <div>
-                                        <a href="#">Follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="blog">
-                            <div class="blog-content">
-                                <div class="blog-content-1">
-                                    <div class="blog-image">
-                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
-                                    </div>
-                                    <div>
-                                        <h2>General Discussions</h2>
-                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-community">
-                                    <div class="blog-view-comments">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
-                                    </div>
-                                    <div>
-                                        <a href="#">Follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="blog">
-                            <div class="blog-content">
-                                <div class="blog-content-1">
-                                    <div class="blog-image">
-                                        <img th:src="@{/img/logo-srpromax.png}" alt="logo">
-                                    </div>
-                                    <div>
-                                        <h2>General Discussions</h2>
-                                        <p>Describe your forum category. Engage your audience and entice them to continue reading.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-community">
-                                    <div class="blog-view-comments">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="24px" width="24px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="24px" width="24px">
-                                    </div>
-                                    <div>
-                                        <a href="#">Follow</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                     </ul>
+                    <div th:if="${posts.isEmpty()}">
+                        No hay Posts
+                    </div>
                     <ul class="listPage">
 
                     </ul>
-                    <ul>
-                        <li class="new-posts">
+                    <ul class="new-posts" th:if="${ultimosPosts.size() > 0}">
+                        <li th:each="post: ${ultimosPosts}">
                             <div class="post">
                                 <div class="post-header">
                                     <img th:src="@{/img/user.svg}" alt="user" width="30px" height="30px">
                                     <div class="post-userinfo">
-                                        <h3>Admin <span></span></h3>
-                                        <p>Mar 22</p>
+                                        <h3 th:text="${post.author.username}"><span></span></h3>
+                                        <p th:text="${#dates.format(post.fechaCreacion, 'yyyy/MM/dd')}"></p>
                                     </div>
                                 </div>
                                 <div class="post-content">
-                                    <h3>Seeds from around the world</h3>
-                                    <p>Engage your audience with relevant and</p>
-                                    <p>This is your forum post. Creating</p>
-                                </div>
-                                <div class="new-blog-community">
-                                    <div class="like">
-                                        <img th:src="@{/img/like.svg}" alt="like" width="26px" height="26px">
-                                        <span>Like</span>
-                                    </div>
-                                    <div class="comments-view-icon">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="20px" width="20px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="20px" width="20px">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="post">
-                                <div class="post-header">
-                                    <img th:src="@{/img/user.svg}" alt="user" width="30px" height="30px">
-                                    <div class="post-userinfo">
-                                        <h3>Admin <span></span></h3>
-                                        <p>Mar 22</p>
-                                    </div>
-                                </div>
-                                <div class="post-content">
-                                    <h3>Seeds from around the world</h3>
-                                    <p>Engage your audience with relevant and</p>
-                                    <p>This is your forum post. Creating</p>
-                                </div>
-                                <div class="new-blog-community">
-                                    <div class="like">
-                                        <img th:src="@{/img/like.svg}" alt="like" width="26px" height="26px">
-                                        <span>Like</span>
-                                    </div>
-                                    <div class="comments-view-icon">
-                                        <img th:src="@{/img/ojo-svg.svg}" alt="ojito" height="20px" width="20px">
-                                        <img th:src="@{/img/comment-svg.svg}" alt="ojito" height="20px" width="20px">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="post">
-                                <div class="post-header">
-                                    <img th:src="@{/img/user.svg}" alt="user" width="30px" height="30px">
-                                    <div class="post-userinfo">
-                                        <h3>Admin <span></span></h3>
-                                        <p>Mar 22</p>
-                                    </div>
-                                </div>
-                                <div class="post-content">
-                                    <h3>Seeds from around the world</h3>
-                                    <p>Engage your audience with relevant and</p>
-                                    <p>This is your forum post. Creating</p>
+                                    <h3 th:text="${post.title}">Seeds from around the world</h3>
+                                    <p th:text="${post.content}"></p>
                                 </div>
                                 <div class="new-blog-community">
                                     <div class="like">

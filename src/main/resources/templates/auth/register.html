@@ -32,6 +32,10 @@
 
                 <input class="button-login" type="submit" value="Registrarse">
 
+                <div class="have-account">
+                    <p>Do you already have an account? <a th:href="@{/auth/login}">Login</a></p>
+                </div>
+
                 <div th:if="${#fields.hasErrors()}">
                     <div th:each="err: ${#fields.errors()}">
                         <p class="msj-error" th:text="${err}"></p>

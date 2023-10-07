@@ -80,3 +80,26 @@ body {
 .entrada-content textarea  {
     height: 10rem;
 }
+
+.button-post {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-post:hover {
+    background-color: #cccccc;
+}
+
+.msj-error {
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: #f44336;
+    color: #fff;
+    font-size: 1.8rem;
+}
