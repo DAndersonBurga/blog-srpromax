@@ -20,13 +20,18 @@ public class Post {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column(length = 30, nullable = false)
     private String title;
+
+    @Column(length = 100, nullable = false)
     private String content;
 
-    @Column(name = "fecha_creacion")
+    @Column(name = "fecha_creacion", nullable = false)
     private Date fechaCreacion;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false)
     private Usuario author;
 
      @PrePersist
