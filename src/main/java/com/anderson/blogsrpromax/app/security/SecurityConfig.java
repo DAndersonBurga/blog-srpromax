@@ -28,7 +28,6 @@ public class SecurityConfig {
                     authHttpRequest.requestMatchers(HttpMethod.GET,"/auth/**").permitAll();
                     authHttpRequest.requestMatchers("/css/**", "/js/**", "/img/**").permitAll();
                     authHttpRequest.requestMatchers(HttpMethod.POST,"/auth/**").permitAll();
-                    authHttpRequest.requestMatchers(HttpMethod.GET,"/home/**").permitAll();
                     authHttpRequest.anyRequest().hasAnyAuthority("USER");
                 })
                 .formLogin(formLogin -> {
