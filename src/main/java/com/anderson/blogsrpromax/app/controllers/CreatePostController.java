@@ -2,6 +2,7 @@ package com.anderson.blogsrpromax.app.controllers;
 
 import com.anderson.blogsrpromax.app.models.dto.PostDTO;
 import com.anderson.blogsrpromax.app.services.IUsuarioService;
+import com.anderson.blogsrpromax.app.services.RecaptchaService;
 import com.anderson.blogsrpromax.app.user.Usuario;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -11,9 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,6 +25,7 @@ public class CreatePostController {
 
     private UserDetails userDetails;
     private final IUsuarioService usuarioService;
+    private final RecaptchaService recaptchaService;
 
     @GetMapping
     public String createPostIndex(@AuthenticationPrincipal UserDetails userDetails, Model model) {
@@ -38,7 +38,10 @@ public class CreatePostController {
     }
 
     @PostMapping
-    public String createPost(@Valid PostDTO postDTO, BindingResult result, Model model) {
+    public String createPost(@ModelAttribute(name = "post") @Valid PostDTO postDTO,
+                             BindingResult result, @RequestParam(name = "g-recaptcha-response") String captcha, Model model) {
+
+        boolean captchaValid = recaptchaService.validateRecaptcha(captcha);
 
         if (result.hasErrors()) {
             model.addAttribute("post", postDTO);
@@ -46,10 +49,19 @@ public class CreatePostController {
             return "web/createPost";
         }
 
+        if (!captchaValid) {
+            model.addAttribute("post", postDTO);
+            model.addAttribute("user", userDetails);
+            model.addAttribute("error", "Captcha inválido.");
+            return "web/createPost";
+        }
+
         Usuario usuario = usuarioService.findByEmail(userDetails.getUsername()).get();
         usuarioService.crearPost(usuario, postDTO);
 
         return "redirect:/home";
+
+
     }
 
 }

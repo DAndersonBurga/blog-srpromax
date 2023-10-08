@@ -32,12 +32,14 @@
 
                 <input class="button-login" type="submit" value="Registrarse">
 
+                <div class="g-recaptcha recaptcha" data-sitekey="6LdJjoUoAAAAAFWt-OR_BrLJP3qll0J6VsN_qXjX"></div>
+
                 <div class="have-account">
                     <p>Do you already have an account? <a th:href="@{/auth/login}">Login</a></p>
                 </div>
 
-                <div th:if="${#fields.hasErrors()}">
-                    <div th:each="err: ${#fields.errors()}">
+                <div class="errores" th:if="${#fields.hasErrors()}">
+                    <div class="error" th:each="err: ${#fields.errors()}">
                         <p class="msj-error" th:text="${err}"></p>
                     </div>
                 </div>
@@ -48,8 +50,10 @@
     </div>
 </div>
 
+<div class="error-captcha" th:if="${error}">
+    <p th:text="${error}"></p>
+</div>
 
-
-
+<script th:src="@{https://www.google.com/recaptcha/api.js}" async defer></script>
 </body>
 </html>

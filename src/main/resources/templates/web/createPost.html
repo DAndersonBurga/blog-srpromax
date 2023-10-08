@@ -24,6 +24,7 @@
 </nav>
 
 <div class="contenido">
+
     <div class="contenedor">
         <form th:action="@{/create-post}" th:object="${post}" method="post">
             <div class="entrada-blog">
@@ -34,17 +35,27 @@
                     <textarea  th:field="*{content}" placeholder="Escribe tu entrada aquí, algo simple :)."></textarea>
                 </div>
 
+                <div class="g-recaptcha" data-sitekey="6LdJjoUoAAAAAFWt-OR_BrLJP3qll0J6VsN_qXjX"></div>
+
                 <input class="button-post" type="submit" value="Publicar Post">
             </div>
 
-            <div th:if="${#fields.hasErrors()}">
-                <div th:each="err: ${#fields.errors()}">
+
+
+            <div class="errores" th:if="${#fields.hasErrors()}">
+                <div class="error" th:each="err: ${#fields.errors()}">
                     <p class="msj-error" th:text="${err}"></p>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<div class="error-captcha" th:if="${error}">
+    <p th:text="${error}"></p>
+</div>
+
+<script th:src="@{https://www.google.com/recaptcha/api.js}" async defer></script>
 
 </body>
 </html>

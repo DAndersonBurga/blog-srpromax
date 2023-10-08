@@ -38,7 +38,7 @@ body {
     background-size: cover;
     z-index: 1;
     max-width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .entrada-blog {
@@ -97,9 +97,55 @@ body {
 }
 
 .msj-error {
+    text-align: center;
     box-sizing: border-box;
     padding: 1rem;
     background-color: #f44336;
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 1rem;
+}
+
+.error {
+    bottom: 0;
+    right: 0;
+    color: white;
+    display: block;
+}
+
+.error p {
+    padding: 1rem;
+    margin: .5rem;
+}
+
+.errores {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+.error-captcha {
+    position: absolute;
+    bottom: 80%;
+    width: 30rem;
+    right: 4rem;
+    color: white;
+    display: block;
+    font-size: 1.5rem;
+    background-color: #f44336;
+    padding: 1rem;
+
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none; /* Oculta el mensaje después de la animación */
+    }
 }

@@ -164,3 +164,59 @@ form {
     color: #fff;
     font-size: 1.8rem;
 }
+
+.recaptcha {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.error {
+    bottom: 0;
+    right: 0;
+    color: white;
+    display: block;
+}
+
+.error p {
+    padding: 1rem;
+    margin: .5rem;
+    text-align: center;
+}
+
+.errores {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+.error-captcha {
+    position: absolute;
+    width: 30rem;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    display: block;
+    font-size: 1rem;
+    background-color: #f44336;
+
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+.error-captcha p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none; /* Oculta el mensaje después de la animación */
+    }
+}
