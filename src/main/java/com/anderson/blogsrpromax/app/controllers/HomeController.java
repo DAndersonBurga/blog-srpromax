@@ -62,6 +62,7 @@ public class HomeController {
             if (search != null) {
                 List<Post> postsEncontrados = postService.buscarPosts(search, usuario.get().getId());
                 model.addAttribute("posts", postsEncontrados);
+                model.addAttribute("user", userDetails);
                 return "home";
             }
 

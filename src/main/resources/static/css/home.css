@@ -163,6 +163,14 @@ main {
     font-size: 1.8rem;
 }
 
+.search form {
+    display: flex;
+}
+
+.search button:hover {
+    cursor: pointer;
+}
+
 .new-post {
     display: flex;
     justify-content: end;

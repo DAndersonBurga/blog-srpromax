@@ -50,7 +50,7 @@ body {
     width: 90%;
 }
 
-@media (max-width: 545px) {
+@media (max-width: 1080px) {
     .form {
         grid-template-columns: 1fr;
     }
