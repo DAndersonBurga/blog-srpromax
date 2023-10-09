@@ -22,4 +22,19 @@ public class PostServiceImpl implements IPostService {
     public List<Post> ultimosPost() {
         return postRepository.ultimosPost();
     }
+
+    @Override
+    public List<Post> findByUsuarioId(Long id) {
+        return postRepository.findUserPosts(id);
+    }
+
+    @Override
+    public List<Post> buscarPosts(String search) {
+        return postRepository.buscarPosts(search);
+    }
+
+    @Override
+    public List<Post> buscarPosts(String search, Long id) {
+        return postRepository.buscarPosts(search, id);
+    }
 }

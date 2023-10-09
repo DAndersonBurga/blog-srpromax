@@ -27,11 +27,16 @@
             <div class="contenido-principal">
                 <div class="nav-blog">
                     <div class="links-nav-blog">
-                        <a href="#">All Posts</a>
-                        <a href="#">My Posts</a>
+                        <a th:href="@{/home}">All Posts</a>
+                        <a th:href="@{/home/myposts}">My Posts</a>
                     </div>
                     <div class="search">
-                        <input type="text" placeholder="Search" autocomplete="off" aria-label="Search">
+                        <form method="get" th:action="${pagHome != null ? '/home' : '/home/myposts'}">
+                            <input type="text" placeholder="Search" autocomplete="off" aria-label="Search" name="search">
+                            <button type="submit">
+                                <img th:src="@{/img/search.svg}" alt="search" width="20px" height="20px">
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <div class="new-post">
@@ -64,13 +69,13 @@
 
 
                     </ul>
-                    <div th:if="${posts.isEmpty()}">
+                    <div style="font-size: 1.8rem; font-weight: bold; padding: 1rem" th:if="${posts.isEmpty()}">
                         No hay Posts
                     </div>
                     <ul class="listPage">
 
                     </ul>
-                    <ul class="new-posts" th:if="${ultimosPosts.size() > 0}">
+                    <ul class="new-posts" th:if="${ultimosPosts != null}">
                         <li th:each="post: ${ultimosPosts}">
                             <div class="post">
                                 <div class="post-header">
@@ -81,7 +86,7 @@
                                     </div>
                                 </div>
                                 <div class="post-content">
-                                    <h3 th:text="${post.title}">Seeds from around the world</h3>
+                                    <h3 th:text="${post.title}"></h3>
                                     <p th:text="${post.content}"></p>
                                 </div>
                                 <div class="new-blog-community">

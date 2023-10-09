@@ -9,4 +9,7 @@ public interface IPostRepository {
     List<Post> findUserPosts(Long id);
     List<Post> findAll();
     List<Post> ultimosPost();
+    List<Post> buscarPosts(String search);
+    List<Post> buscarPosts(String search, Long id);
+
 }

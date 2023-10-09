@@ -43,7 +43,7 @@ public class IPostRepositoryImpl implements IPostRepository {
     @Override
     public List<Post> findAll() {
         try {
-            return entityManager.createQuery("select p from Post p", Post.class)
+            return entityManager.createQuery("select p from Post p order by id desc", Post.class)
                     .getResultList();
         } catch (Exception e) {
             return Collections.emptyList();
@@ -56,6 +56,31 @@ public class IPostRepositoryImpl implements IPostRepository {
         try {
             return entityManager.createQuery("SELECT p FROM Post p ORDER BY p.id DESC", Post.class)
                     .setMaxResults(3)
+                    .getResultList();
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Post> buscarPosts(String search) {
+        try {
+            return entityManager.createQuery("SELECT p FROM Post p WHERE p.content like :search OR p.title like :search ORDER BY p.id DESC", Post.class)
+                    .setParameter("search", "%" + search + "%")
+                    .getResultList();
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Post> buscarPosts(String search, Long id) {
+        try {
+            return entityManager.createQuery("SELECT p FROM Post p WHERE (p.content like :search OR p.title like :search) AND p.author.id = :id ORDER BY p.id DESC", Post.class)
+                    .setParameter("search", "%" + search + "%")
+                    .setParameter("id", id)
                     .getResultList();
         } catch (Exception e) {
             return Collections.emptyList();
