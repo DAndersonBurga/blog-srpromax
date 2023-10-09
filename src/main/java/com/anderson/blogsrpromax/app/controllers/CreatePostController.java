@@ -32,6 +32,7 @@ public class CreatePostController {
         PostDTO postDTO = new PostDTO();
         this.userDetails = userDetails;
 
+        model.addAttribute("tipo","Crear Post");
         model.addAttribute("post", postDTO);
         model.addAttribute("user", userDetails);
         return "web/createPost";
@@ -42,6 +43,7 @@ public class CreatePostController {
                              BindingResult result, @RequestParam(name = "g-recaptcha-response") String captcha, Model model) {
 
         boolean captchaValid = recaptchaService.validateRecaptcha(captcha);
+        model.addAttribute("tipo","Crear Post");
 
         if (result.hasErrors()) {
             model.addAttribute("post", postDTO);
@@ -60,8 +62,6 @@ public class CreatePostController {
         usuarioService.crearPost(usuario, postDTO);
 
         return "redirect:/home";
-
-
     }
 
 }

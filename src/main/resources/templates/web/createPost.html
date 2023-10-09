@@ -26,7 +26,7 @@
 <div class="contenido">
 
     <div class="contenedor">
-        <form th:action="@{/create-post}" th:object="${post}" method="post">
+        <form th:action="${tipo == 'Crear Post' ? '/create-post' : '/home/myposts/edit'}" th:object="${post}" method="post">
             <div class="entrada-blog">
                 <div class="entrada-header">
                     <textarea th:field="*{title}" placeholder="Elige un título para tu entrada"></textarea>
@@ -37,7 +37,9 @@
 
                 <div class="g-recaptcha" data-sitekey="6LdJjoUoAAAAAFWt-OR_BrLJP3qll0J6VsN_qXjX"></div>
 
-                <input class="button-post" type="submit" value="Publicar Post">
+                <input class="button-post" type="submit" th:value="${tipo}">
+
+                <input th:if="${id != null}" type="hidden" th:value="${id}" name="id">
             </div>
 
 

@@ -9,10 +9,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +20,6 @@ import java.util.Optional;
 public class HomeController {
 
     private final IPostService postService;
-    private final IUsuarioService usuarioService;
 
     @GetMapping
     public String home(@AuthenticationPrincipal UserDetails userDetails, @RequestParam(name = "search", required = false) String search, Model model) {
@@ -50,28 +46,5 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/myposts")
-    public String myposts(@AuthenticationPrincipal UserDetails userDetails, @RequestParam(name = "search", required = false) String search, Model model) {
-        if (userDetails == null) {
-            return "home";
-        }
-
-        Optional<Usuario> usuario = usuarioService.findByEmail(userDetails.getUsername());
-        if (usuario.isPresent()) {
-
-            if (search != null) {
-                List<Post> postsEncontrados = postService.buscarPosts(search, usuario.get().getId());
-                model.addAttribute("posts", postsEncontrados);
-                model.addAttribute("user", userDetails);
-                return "home";
-            }
-
-            List<Post> posts = postService.findByUsuarioId(usuario.get().getId());
-            model.addAttribute("posts", posts);
-        }
-
-        model.addAttribute("user", userDetails);
-        return "home";
-    }
 
 }

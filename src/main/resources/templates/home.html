@@ -65,6 +65,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="buttons-detele-update">
+                                <div th:if="${pagHome == null}">
+                                    <a class="btn-edit" th:href="${'/home/myposts/edit/' + post.id}">Editar</a>
+                                </div>
+                                <div th:if="${pagHome == null}">
+                                    <a class="btn-delete" th:href="${'/home/myposts/delete/' + post.id}">Eliminar</a>
+                                </div>
+                            </div>
                         </li>
 
 

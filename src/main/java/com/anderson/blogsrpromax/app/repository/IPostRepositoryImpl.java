@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,8 +22,10 @@ public class IPostRepositoryImpl implements IPostRepository {
         try {
             if (post != null && post.getId() > 0) {
                 entityManager.merge(post);
+            } else {
+                entityManager.persist(post);
             }
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             entityManager.persist(post);
         }
     }
@@ -31,7 +34,7 @@ public class IPostRepositoryImpl implements IPostRepository {
     @Override
     public List<Post> findUserPosts(Long id) {
         try {
-            return entityManager.createQuery("select p from Post p where p.author.id = :id", Post.class)
+            return entityManager.createQuery("select p from Post p where p.author.id = :id order by id desc", Post.class)
                     .setParameter("id", id)
                     .getResultList();
         } catch (Exception e) {
@@ -85,5 +88,27 @@ public class IPostRepositoryImpl implements IPostRepository {
         } catch (Exception e) {
             return Collections.emptyList();
         }
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Optional<Post> findByAuthorAndIdPost(String email, Long idPost) {
+        try {
+            return Optional.ofNullable(entityManager.createQuery("SELECT p FROM Post p INNER JOIN Usuario u ON p.author.id = u.id WHERE u.email = :email AND p.id = :idPost", Post.class)
+                    .setParameter("email", email)
+                    .setParameter("idPost", idPost)
+                    .getSingleResult());
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
+    @Transactional
+    @Override
+    public void deletePost(Long idPost, Long idUser) {
+        entityManager.createQuery("DELETE FROM Post p WHERE p.id = :idPost AND p.author.id = :idUser")
+                .setParameter("idPost", idPost)
+                .setParameter("idUser", idUser)
+                .executeUpdate();
     }
 }

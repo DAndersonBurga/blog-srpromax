@@ -15,5 +15,4 @@ public interface IUsuarioService {
     void validarToken(String token);
 
     void crearPost(Usuario usuario, PostDTO postDTO);
-    List<Post> findUserPosts(Long id);
 }

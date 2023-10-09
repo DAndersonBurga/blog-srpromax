@@ -88,8 +88,4 @@ public class UsuarioServiceImpl implements IUsuarioService {
         postRepository.save(post);
     }
 
-    @Override
-    public List<Post> findUserPosts(Long id) {
-        return postRepository.findUserPosts(id);
-    }
 }
