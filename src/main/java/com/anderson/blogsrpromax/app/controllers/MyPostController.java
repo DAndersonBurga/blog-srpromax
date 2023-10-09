@@ -73,7 +73,6 @@ public class MyPostController {
     @PostMapping("/edit")
     public String editarPost(@AuthenticationPrincipal UserDetails userDetails, @ModelAttribute(name = "post") @Valid PostDTO postDTO,
                              BindingResult result, @RequestParam(name = "g-recaptcha-response") String captcha, @RequestParam("id") Long id, Model model) {
-        System.out.println("Esta dando??");
 
         if (id == null || id < 0) {
             return "redirect:/home/myposts";
