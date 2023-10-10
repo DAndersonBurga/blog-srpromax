@@ -53,21 +53,43 @@ body {
 @media (max-width: 1080px) {
     .form {
         grid-template-columns: 1fr;
+        height: 90%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .form-login h1 {
+        font-size: 5.5rem!important;
+    }
+
+    .form-login label {
+        font-size: 2.8rem!important;
+    }
+
+    .campo input {
+        padding: 1.3rem!important;
+        width: 95%!important;
+    }
+
+    .campo input::placeholder {
+        font-size: 2rem!important;
     }
 
     .img-hero-login {
         display: none;
     }
 
-    form {
-        height: 75rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
     .campo {
         font-size: 5rem;
+    }
+
+    .button-login {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
     }
 }
 
